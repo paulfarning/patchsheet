@@ -1,0 +1,154 @@
+.section
+  %h2 LFO
+  .ctrl.-vertical
+    %label( for="rate") Rate
+    %input( type="text" id="rate" name="rate" readonly )
+    .slider-vertical
+  .ctrl.-vertical
+    %label( for="delay-time") Delay Time
+    %input( type="text" id="delay-time" name="delay-time" readonly )
+    .slider-vertical
+  .ctrl.-switch
+    %label Trig Mode
+    %label
+      %input( type="radio" name="trig-mode" value="auto" checked )
+      Auto
+    %label
+      %input( type="radio" name="trig-mode" value="manual" )
+      Manual
+
+
+.section
+  %h2 DCO
+  .ctrl.-vertical
+    %label( for="lfo") LFO
+    %input( type="text" id="lfo" name="lfo" readonly )
+    .slider-vertical
+  .ctrl.-vertical
+    %label( for="pwm") PWM
+    %input( type="text" id="pwm" name="pwm" readonly )
+    .slider-vertical
+  .ctrl.-switch
+    %label PWM Mode
+    %label
+      %input( type="radio" name="pwm-mode" value="auto" )
+      LFO
+    %label
+      %input( type="radio" name="pwm-mode" value="manual" checked )
+      Manual
+    %label
+      %input( type="radio" name="pwm-mode" value="env" )
+      Env
+  .ctrl.-button
+    %label
+      %input( type="checkbox" name="dco-square" )
+      Square
+  .ctrl.-button
+    %label
+      %input( type="checkbox" name="dco-saw" )
+      Saw
+  .ctrl.-button
+    %label
+      %input( type="checkbox" name="dco-sub" )
+      Sub
+  .ctrl.-vertical
+    %label( for="sub-osc") Sub Osc
+    %input( type="text" id="sub-osc" name="sub-osc" readonly )
+    .slider-vertical
+  .ctrl.-vertical
+    %label( for="noise") Noise
+    %input( type="text" id="noise" name="noise" readonly )
+    .slider-vertical
+
+
+.section
+  %h2 HPF
+  .ctrl.-vertical
+    %label( for="hpf-freq") Freq
+    %input( type="text" id="hpf-freq" name="hpf-freq" readonly )
+    .slider-vertical( data-max="3" )
+
+
+.section
+  %h2 VCF
+  .ctrl.-vertical
+    %label( for="freq") Freq
+    %input( type="text" id="freq" name="freq" readonly )
+    .slider-vertical
+  .ctrl.-vertical
+    %label( for="res") Res
+    %input( type="text" id="res" name="res" readonly )
+    .slider-vertical
+  .ctrl.-switch
+    %label Polarity
+    %label
+      %input( type="radio" name="polarity" value="normal" checked )
+      Normal
+    %label
+      %input( type="radio" name="polarity" value="inverted" )
+      Inverted
+  .ctrl.-vertical
+    %label( for="env") Env
+    %input( type="text" id="env" name="env" readonly )
+    .slider-vertical
+  .ctrl.-vertical
+    %label( for="lfo") LFO
+    %input( type="text" id="lfo" name="lfo" readonly )
+    .slider-vertical
+  .ctrl.-vertical
+    %label( for="kybd") Kybd
+    %input( type="text" id="kybd" name="kybd" readonly )
+    .slider-vertical
+
+
+.section
+  %h2 VCA
+  .ctrl.-vertical
+    %label( for="level") Level
+    %input( type="text" id="level" name="level" readonly )
+    .slider-vertical
+  .ctrl.-switch
+    %label Control Signal
+    %label
+      %input( type="radio" name="control-signal" value="env" checked )
+      Env
+    %label
+      %input( type="radio" name="control-signal" value="gate" )
+      Gate
+
+
+.section
+  %h2 Env
+  .ctrl.-vertical
+    %label( for="a") A
+    %input( type="text" id="a" name="a" readonly )
+    .slider-vertical
+  .ctrl.-vertical
+    %label( for="d") D
+    %input( type="text" id="d" name="d" readonly )
+    .slider-vertical
+  .ctrl.-vertical
+    %label( for="s") S
+    %input( type="text" id="s" name="s" readonly )
+    .slider-vertical
+  .ctrl.-vertical
+    %label( for="r") R
+    %input( type="text" id="r" name="r" readonly )
+    .slider-vertical
+
+
+.section
+  %h2 Chorus
+  .ctrl.-button
+    %label
+      %input( type="checkbox" name="chorus-i" )
+      I
+  .ctrl.-button
+    %label
+      %input( type="checkbox" name="chorus-ii" )
+      II
+
+
+- content_for :scripts do
+  %script
+    var page = new ps.SetUp('create');
