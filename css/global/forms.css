@@ -26,7 +26,8 @@ label {
 
 .slider-vertical {
   height: 200px;
-  margin: 16px auto; }
+  margin: 16px auto;
+}
 
 .ui-slider-handle {
   outline: none; }

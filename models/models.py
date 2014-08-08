@@ -32,7 +32,6 @@ class Patch(ndb.Expando):
   created = ndb.DateTimeProperty(auto_now_add=True)
   edited = ndb.DateProperty(auto_now=True)
   name = ndb.StringProperty(indexed=False)
-  parameters = ndb.JsonProperty()
 # [END patch]
 
 # [START juno60]
@@ -76,10 +75,52 @@ class Juno60:
 class MiniBrute(ndb.Model):
   """Models an individual MiniBrute patch."""
   params_int = [
+    'osc_ultrasaw_amount',
+    'osc_ultrasaw_rate',
+    'osc_ultrasaw_amount',
+    'osc_ultrasaw_rate',
+    'osc_pulse_width',
+    'osc_pulse_amt',
+    'osc_metalizer',
+    'osc_metalizer_amt',
+    'mix_sub_osc',
+    'mix_saw',
+    'mix_square',
+    'mix_triangle',
+    'mix_noise',
+    'mix_audio',
+    'filter_cutoff',
+    'filter_resonance',
+    'filter_amt',
+    'filter_kbd',
+    'filter_env_a',
+    'filter_env_d',
+    'filter_env_s',
+    'filter_env_r',
+    'amp_env_a',
+    'amp_env_d',
+    'amp_env_s',
+    'amp_env_r',
+    'controls_bend',
+    'controls_glide',
+    'vibrato_rate',
+    'lfo_pwm',
+    'lfo_pitch',
+    'lfo_filter',
+    'lfo_amp',
+    'lfo_rate',
     'brute_factor'
   ]
   params_bool = [
   ]
   params_string = [
+    'osc_wave',
+    'osc_octave',
+    'filter_mode',
+    'filter_speed',
+    'controls_mod',
+    'controls_aftertouch',
+    'vibrato_shape',
+    'lfo_wave'
   ]
 # [END minibrute]

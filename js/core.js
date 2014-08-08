@@ -8,10 +8,23 @@
 ps = {};
 ps.sliderDefaults = {
   min: 0,
-  max: 10,
+  max: 100,
   value: 0,
   step: 1,
   disabled: false
+};
+ps.knobDefaults = {
+  min: 0,
+  max: 100,
+  value: 0,
+  step: 1,
+  readOnly: false,
+  angleOffset: -135,
+  angleArc: 270,
+  fgColor: '#666',
+  width: 90,
+  thickness: .2,
+  cursor: true
 };
 
 ps.SetUp = function(pageName) {
@@ -36,6 +49,7 @@ ps.SetUp.prototype.create_ = function() {
 
   console.log('create');
   this.initSliders_();
+  this.initKnobs_();
 
 
 }
@@ -44,7 +58,7 @@ ps.SetUp.prototype.create_ = function() {
 ps.SetUp.prototype.view_ = function() {
 
   console.log('view');
-  this.initSliders_();
+  this.initKnobs_();
 
 }
 
@@ -74,6 +88,34 @@ ps.SetUp.prototype.initSliders_ = function() {
     });
 
     field.val(slider.slider('value'));
+
+  });
+
+};
+
+
+ps.SetUp.prototype.initKnobs_ = function() {
+
+  $('.knob').each(function() {
+
+    var knob = $(this);
+    var min = knob.data('min') ? knob.data('min') : ps.knobDefaults.min;
+    var max = knob.data('max') ? knob.data('max') : ps.knobDefaults.max;
+    var step = knob.data('step') ? knob.data('step') : ps.knobDefaults.step;
+    var readOnly = knob.data('readOnly') ? knob.data('readOnly') : ps.knobDefaults.readOnly;
+
+    knob.knob({
+      min: min,
+      max: max,
+      step: step,
+      readOnly: readOnly,
+      angleArc: ps.knobDefaults.angleArc,
+      angleOffset: ps.knobDefaults.angleOffset,
+      fgColor: ps.knobDefaults.fgColor,
+      width: ps.knobDefaults.width,
+      thickness: ps.knobDefaults.thickness,
+      cursor: ps.knobDefaults.cursor
+    });
 
   });
 

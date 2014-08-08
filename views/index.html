@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <h1>Create</h1>
+
+  <ol>
+    {% for synth in synths %}
+      <li><a href="/patches/{{ synth.key.id() }}/create">{{ synth.make }} {{ synth.model }}</a></li>
+    {% endfor %}
+  </ol>
   <h1>Patches</h1>
 
   <ol>
