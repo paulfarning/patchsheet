@@ -1,0 +1,30 @@
+{% macro vertical_slider(name, label, max, min, step, value) -%}
+  <div class="ctrl -vertical">
+    <label for="{{ name }}">{{ label }}</label>
+    <input id="{{ name }}" name="{{ name }}" readonly type="text"{% if patch %} value="{{ patch[name.replace('-','_')] }}"{% endif %}>
+    <div class="slider-vertical"{% if patch %} data-value="{{ patch[name.replace('-','_')] }}"{% else %}{% if value %} data-value="{{ value }}"{% endif %}{% endif %} data-disabled="{{ disabled }}"{% if max %} data-max="{{ max }}"{% endif %}{% if min %} data-min="{{ min }}"{% endif %}{% if step %} data-step="{{ step }}"{% endif %}></div>
+  </div>
+{%- endmacro %}
+
+
+{% macro switch(name, label, options, default) -%}
+  <div class="ctrl -switch">
+    <label>{{ label }}</label>
+    {% for key, value in options.iteritems() %}
+    <label>
+      <input name="{{ name }}" type="radio" value="{{ key }}"{% if disabled == 'true' %} disabled{% endif %}{% if patch %}{% if patch[name.replace('-','_')] == key %} checked{% endif %}{% else %}{% if default == key %} checked {% endif %}{% endif %}>
+      {{ value }}
+    </label>
+    {% endfor %}
+  </div>
+{%- endmacro %}
+
+
+{% macro button(name, label) -%}
+  <div class="ctrl -button">
+    <label>
+      <input name="{{ name }}" type="checkbox"{% if patch and patch[name.replace('-','_')] == true %} checked{% endif %}{% if disabled == 'true' %} disabled{% endif %}>
+      {{ label }}
+    </label>
+  </div>
+{%- endmacro %}

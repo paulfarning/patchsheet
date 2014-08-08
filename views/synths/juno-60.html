@@ -4,190 +4,56 @@
 {% extends "edit.html" %}
 {% endif %}
 
+{% import 'controls.html' as controls with context %}
+
 {% block patch %}
 <input type="hidden" name="patch-synth" value="juno-60">
 <div class="section">
   <h2>LFO</h2>
-  <div class="ctrl -vertical">
-    <label for="lfo-rate">Rate</label>
-    <input id="lfo-rate" name="lfo-rate" readonly type="text"{% if patch %} value="{{ patch.lfo_rate }}"{% endif %}>
-    <div class="slider-vertical"{% if patch %} data-value="{{ patch.lfo_rate }}"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
-  <div class="ctrl -vertical">
-    <label for="lfo-delay-time">Delay Time</label>
-    <input id="lfo-delay-time" name="lfo-delay-time" readonly type="text"{% if patch %} value="{{ patch.lfo_delay_time }}"{% endif %}>
-    <div class="slider-vertical"{% if patch %} data-value="{{ patch.lfo_delay_time }}"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
-  <div class="ctrl -switch">
-    <label>Trig Mode</label>
-    <label>
-      <input checked name="lfo-trig-mode" type="radio" value="auto"{% if disabled == 'true' %} disabled{% endif %}>
-      Auto
-    </label>
-    <label>
-      <input name="lfo-trig-mode" type="radio" value="manual"{% if patch and patch.lfo_trig_mode == 'manual' %} checked{% endif %}{% if disabled == 'true' %} disabled{% endif %}>
-      Manual
-    </label>
-  </div>
+  {{ controls.vertical_slider('lfo-rate', 'Rate') }}
+  {{ controls.vertical_slider('lfo-delay-time', 'Delay Time') }}
+  {{ controls.switch('lfo-trig-mode', 'Trig Mode', {'auto': 'Auto', 'manual': 'Manual'}, 'auto') }}
 </div>
 <div class="section">
   <h2>DCO</h2>
-  <div class="ctrl -vertical">
-    <label for="dco-lfo">LFO</label>
-    <input id="dco-lfo" name="dco-lfo" readonly type="text"{% if patch %} value="{{ patch.dco_lfo }}"{% endif %}>
-    <div class="slider-vertical"{% if patch %} data-value="{{ patch.dco_lfo }}"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
-  <div class="ctrl -vertical">
-    <label for="dco-pwm">PWM</label>
-    <input id="dco-pwm" name="dco-pwm" readonly type="text"{% if patch %} value="{{ patch.dco_pwm }}"{% endif %}>
-    <div class="slider-vertical"{% if patch %} data-value="{{ patch.dco_pwm }}"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
-  <div class="ctrl -switch">
-    <label>PWM Mode</label>
-    <label>
-      <input name="dco-pwm-mode" type="radio" value="auto"{% if patch and patch.dco_pwm_mode == 'auto' %} checked{% endif %}{% if disabled == 'true' %} disabled{% endif %}>
-      LFO
-    </label>
-    <label>
-      <input name="dco-pwm-mode" type="radio" value="manual"{% if patch %}{% if patch.dco_pwm_mode == 'manual' %} checked{% endif %}{% else %} checked {% endif %}{% if disabled == 'true' %} disabled{% endif %}>
-      Manual
-    </label>
-    <label>
-      <input name="dco-pwm-mode" type="radio" value="env"{% if patch and patch.dco_pwm_mode == 'env' %} checked{% endif %}{% if disabled == 'true' %} disabled{% endif %}>
-      Env
-    </label>
-  </div>
-  <div class="ctrl -button">
-    <label>
-      <input name="dco-square" type="checkbox"{% if patch and patch.dco_square == true %} checked{% endif %}{% if disabled == 'true' %} disabled{% endif %}>
-      Square
-    </label>
-  </div>
-  <div class="ctrl -button">
-    <label>
-      <input name="dco-saw" type="checkbox"{% if patch and patch.dco_saw == true %} checked{% endif %}{% if disabled == 'true' %} disabled{% endif %}>
-      Saw
-    </label>
-  </div>
-  <div class="ctrl -button">
-    <label>
-      <input name="dco-sub" type="checkbox"{% if patch and patch.dco_sub == true %} checked{% endif %}{% if disabled == 'true' %} disabled{% endif %}>
-      Sub
-    </label>
-  </div>
-  <div class="ctrl -vertical">
-    <label for="dco-sub-osc">Sub Osc</label>
-    <input id="dco-sub-osc" name="dco-sub-osc" readonly type="text"{% if patch %} value="{{ patch.dco_sub_osc }}"{% endif %}>
-    <div class="slider-vertical"{% if patch %} data-value="{{ patch.dco_sub_osc }}"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
-  <div class="ctrl -vertical">
-    <label for="dco-noise">Noise</label>
-    <input id="dco-noise" name="dco-noise" readonly type="text"{% if patch %} value="{{ patch.dco_noise }}"{% endif %}>
-    <div class="slider-vertical"{% if patch %} data-value="{{ patch.dco_noise }}"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
+  {{ controls.vertical_slider('dco-lfo', 'LFO') }}
+  {{ controls.vertical_slider('dco-pwm', 'PWM') }}
+  {{ controls.switch('dco-pwm-mode', 'PWM Mode', {'lfo': 'LFO', 'manual': 'Manual', 'env': 'Env'}, 'manual') }}
+  {{ controls.button('dco-square', 'Square') }}
+  {{ controls.button('dco-saw', 'Saw') }}
+  {{ controls.button('dco-sub', 'Sub') }}
+  {{ controls.vertical_slider('dco-sub-osc', 'Sub Osc') }}
+  {{ controls.vertical_slider('dco-noise', 'Noise') }}
 </div>
 <div class="section">
   <h2>HPF</h2>
-  <div class="ctrl -vertical">
-    <label for="hpf-freq">Freq</label>
-    <input id="hpf-freq" name="hpf-freq" readonly type="text"{% if patch %} value="{{ patch.hpf_freq }}"{% endif %}>
-    <div class="slider-vertical" data-max="3"{% if patch %} data-value="{{ patch.hpf_freq }}"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
+  {{ controls.vertical_slider('hpf-freq', 'Freq', max='3') }}
 </div>
 <div class="section">
   <h2>VCF</h2>
-  <div class="ctrl -vertical">
-    <label for="vcf-freq">Freq</label>
-    <input id="vcf-freq" name="vcf-freq" readonly type="text"{% if patch %} value="{{ patch.vcf_freq }}"{% endif %}>
-    <div class="slider-vertical"{% if patch %} data-value="{{ patch.vcf_freq }}"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
-  <div class="ctrl -vertical">
-    <label for="vcf-res">Res</label>
-    <input id="vcf-res" name="vcf-res" readonly type="text"{% if patch %} value="{{ patch.vcf_res }}"{% endif %}>
-    <div class="slider-vertical"{% if patch %} data-value="{{ patch.vcf_res }}"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
-  <div class="ctrl -switch">
-    <label>Polarity</label>
-    <label>
-      <input checked name="vcf-polarity" type="radio" value="normal"{% if disabled == 'true' %} disabled{% endif %}>
-      Normal
-    </label>
-    <label>
-      <input name="vcf-polarity" type="radio" value="inverted"{% if patch and patch.vcf_polarity == 'inverted' %} checked{% endif %}{% if disabled == 'true' %} disabled{% endif %}>
-      Inverted
-    </label>
-  </div>
-  <div class="ctrl -vertical">
-    <label for="vcf-env">Env</label>
-    <input id="vcf-env" name="vcf-env" readonly type="text"{% if patch %} value="{{ patch.vcf_env }}"{% endif %}>
-    <div class="slider-vertical"{% if patch %} data-value="{{ patch.vcf_env }}"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
-  <div class="ctrl -vertical">
-    <label for="vcf-lfo">LFO</label>
-    <input id="vcf-lfo" name="vcf-lfo" readonly type="text"{% if patch %} value="{{ patch.vcf_lfo }}"{% endif %}>
-    <div class="slider-vertical"{% if patch %} data-value="{{ patch.vcf_lfo }}"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
-  <div class="ctrl -vertical">
-    <label for="vcf-kybd">Kybd</label>
-    <input id="vcf-kybd" name="vcf-kybd" readonly type="text"{% if patch %} value="{{ patch.vcf_kybd }}"{% endif %}>
-    <div class="slider-vertical"{% if patch %} data-value="{{ patch.vcf_kybd }}"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
+  {{ controls.vertical_slider('vcf-freq', 'Freq') }}
+  {{ controls.vertical_slider('vcf-res', 'Res') }}
+  {{ controls.switch('vcf-polarity', 'Polarity', {'normal': 'Normal', 'inverted': 'Inverted'}, 'normal') }}
+  {{ controls.vertical_slider('vcf-env', 'Env') }}
+  {{ controls.vertical_slider('vcf-lfo', 'LFO') }}
+  {{ controls.vertical_slider('vcf-kybd', 'Kybd') }}
 </div>
 <div class="section">
   <h2>VCA</h2>
-  <div class="ctrl -vertical">
-    <label for="vca-level">Level</label>
-    <input id="vca-level" name="vca-level" readonly type="text"{% if patch %} value="{{ patch.vca_level }}"{% else %} value="5"{% endif %}>
-    <div class="slider-vertical"{% if patch %} data-value="{{ patch.vca_level }}"{% else %} data-value="5"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
-  <div class="ctrl -switch">
-    <label>Control Signal</label>
-    <label>
-      <input checked name="vca-control-signal" type="radio" value="env"{% if disabled == 'true' %} disabled{% endif %}>
-      Env
-    </label>
-    <label>
-      <input name="vca-control-signal" type="radio" value="gate"{% if patch and patch.vca_control_signal == 'gate' %} checked{% endif %}{% if disabled == 'true' %} disabled{% endif %}>
-      Gate
-    </label>
+  {{ controls.vertical_slider('vca-level', 'Level', value='5') }}
+  {{ controls.switch('vca-control-signal', 'Control Signal', {'env': 'Env', 'gate': 'Gate'}, 'env') }}
   </div>
 </div>
 <div class="section">
   <h2>Env</h2>
-  <div class="ctrl -vertical">
-    <label for="env-a">A</label>
-    <input id="env-a" name="env-a" readonly type="text"{% if patch %} value="{{ patch.env_a }}"{% endif %}>
-    <div class="slider-vertical"{% if patch %} data-value="{{ patch.env_a }}"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
-  <div class="ctrl -vertical">
-    <label for="env-d">D</label>
-    <input id="env-d" name="env-d" readonly type="text"{% if patch %} value="{{ patch.env_d }}"{% endif %}>
-    <div class="slider-vertical"{% if patch %} data-value="{{ patch.env_d }}"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
-  <div class="ctrl -vertical">
-    <label for="env-s">S</label>
-    <input id="env-s" name="env-s" readonly type="text"{% if patch %} value="{{ patch.env_s }}"{% endif %}>
-    <div class="slider-vertical"{% if patch %} data-value="{{ patch.env_s }}"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
-  <div class="ctrl -vertical">
-    <label for="env-r">R</label>
-    <input id="env-r" name="env-r" readonly type="text"{% if patch %} value="{{ patch.env_r }}"{% endif %}>
-    <div class="slider-vertical"{% if patch %} data-value="{{ patch.env_r }}"{% endif %} data-disabled="{{ disabled }}"></div>
-  </div>
+  {{ controls.vertical_slider('env-a', 'A') }}
+  {{ controls.vertical_slider('env-d', 'D') }}
+  {{ controls.vertical_slider('env-s', 'S') }}
+  {{ controls.vertical_slider('env-r', 'R') }}
 </div>
 <div class="section">
   <h2>Chorus</h2>
-  <div class="ctrl -button">
-    <label>
-      <input name="chorus-i" type="checkbox"{% if patch and patch.chorus_i == true %} checked{% endif %}{% if disabled == 'true' %} disabled{% endif %}>
-      I
-    </label>
-  </div>
-  <div class="ctrl -button">
-    <label>
-      <input name="chorus-ii" type="checkbox"{% if patch and patch.chorus_ii == true %} checked{% endif %}{% if disabled == 'true' %} disabled{% endif %}>
-      II
-    </label>
-  </div>
+  {{ controls.button('chorus-i', 'I') }}
+  {{ controls.button('chorus-ii', 'II') }}
 </div>
 {% endblock %}
