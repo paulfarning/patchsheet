@@ -2,6 +2,7 @@ import os
 import urllib
 import logging
 import json
+import collections
 
 from google.appengine.api import users
 from google.appengine.ext import ndb
@@ -15,6 +16,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(
   loader=jinja2.FileSystemLoader('views'),
   extensions=['jinja2.ext.autoescape'],
   autoescape=True)
+JINJA_ENVIRONMENT.globals['OrderedDict'] = collections.OrderedDict
 
 
 def synth_key(synth):

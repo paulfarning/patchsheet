@@ -1,6 +1,7 @@
 import os
 import urllib
 import logging
+import collections
 
 from google.appengine.api import users
 from google.appengine.ext import ndb
@@ -14,6 +15,8 @@ JINJA_ENVIRONMENT = jinja2.Environment(
   loader=jinja2.FileSystemLoader('views'),
   extensions=['jinja2.ext.autoescape'],
   autoescape=True)
+JINJA_ENVIRONMENT.globals['OrderedDict'] = collections.OrderedDict
+
 
 # [START main]
 class Main(webapp2.RequestHandler):
