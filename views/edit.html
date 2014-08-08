@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Editor - {% endblock %}
+
+{% block content %}
+  <form action="/patches/create" method="post">
+    <div class="section">
+      <div class="meta">
+        <label for="patch-name">Patch name</label>
+        <input id="patch-name" name="patch-name" type="text">
+      </div>
+    </div>
+
+    {% block patch %}{% endblock %}
+
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}
+
+{% block script %}
+  <script>
+    var page = new ps.SetUp('create');
+  </script>
+{% endblock %}

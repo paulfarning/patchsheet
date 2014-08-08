@@ -1,0 +1,17 @@
+{% if view %}
+{% extends "view.html" %}
+{% else %}
+{% extends "edit.html" %}
+{% endif %}
+
+{% block patch %}
+<input type="hidden" name="patch-synth" value="minibrute">
+<div class="section">
+  <h2>LFO</h2>
+  <div class="ctrl -vertical">
+    <label for="brute-factor">Brute Factor</label>
+    <input id="brute-factor" name="brute-factor" readonly type="text"{% if patch %} value="{{ patch.brute_factor }}"{% endif %}>
+    <div class="slider-vertical"{% if patch %} data-value="{{ patch.brute_factor }}"{% endif %} data-disabled="{{ disabled }}"></div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ patch.name }} - {{ super() }}{% endblock %}
+
+{% block content %}
+  <h1>{{ patch.name }}</h1>
+  <p>{{ patch.key.parent().get().make }} {{ patch.key.parent().get().model }}</p>
+  {% block patch %}{% endblock %}
+{% endblock %}
+
+{% block script %}
+  <script>
+    var page = new ps.SetUp('view');
+  </script>
+{% endblock %}

@@ -1,0 +1,6 @@
+indexes:
+- kind: Patch
+  ancestor: yes
+  properties:
+  - name: date
+    direction: desc

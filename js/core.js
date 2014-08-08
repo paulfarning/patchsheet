@@ -10,7 +10,8 @@ ps.sliderDefaults = {
   min: 0,
   max: 10,
   value: 0,
-  step: 1
+  step: 1,
+  disabled: false
 };
 
 ps.SetUp = function(pageName) {
@@ -34,6 +35,21 @@ ps.SetUp.prototype.init_ = function() {
 ps.SetUp.prototype.create_ = function() {
 
   console.log('create');
+  this.initSliders_();
+
+
+}
+
+
+ps.SetUp.prototype.view_ = function() {
+
+  console.log('view');
+  this.initSliders_();
+
+}
+
+
+ps.SetUp.prototype.initSliders_ = function() {
 
   $('.slider-vertical').each(function() {
 
@@ -43,6 +59,7 @@ ps.SetUp.prototype.create_ = function() {
     var max = slider.data('max') ? slider.data('max') : ps.sliderDefaults.max;
     var value = slider.data('value') ? slider.data('value') : ps.sliderDefaults.value;
     var step = slider.data('step') ? slider.data('step') : ps.sliderDefaults.step;
+    var disabled = slider.data('disabled') ? slider.data('disabled') : ps.sliderDefaults.disabled;
 
     slider.slider({
       orientation: 'vertical',
@@ -50,6 +67,7 @@ ps.SetUp.prototype.create_ = function() {
       max: max,
       value: value,
       step: step,
+      disabled: disabled,
       slide: function(event, ui) {
         field.val(ui.value);
       }
@@ -59,5 +77,4 @@ ps.SetUp.prototype.create_ = function() {
 
   });
 
-
-}
+};

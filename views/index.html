@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Patches</h1>
+
+  <ol>
+    {% for patch in patches %}
+    <li><a href="/patches/{{ patch.key.parent().id() }}/{{ patch.key.id() }}">{{ patch.name }}</a> for {{ patch.key.parent().get().make }} {{ patch.key.parent().get().model }}</li>
+    {% endfor %}
+  </ol>
+{% endblock %}
+
+{% block script %}
+  <script>
+    var page = new ps.SetUp('home');
+  </script>
+{% endblock %}

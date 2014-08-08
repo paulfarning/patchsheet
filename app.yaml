@@ -1,0 +1,36 @@
+application: patchsheet
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /favicon\.png
+  static_files: favicon.png
+  upload: favicon\.png
+
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /css
+  static_dir: css
+
+- url: /images
+  static_dir: images
+
+- url: /js
+  static_dir: js
+
+- url: /(.*\.(gif|png|jpg))$
+  static_files: static/\1
+  upload: static/.*\.(gif|png|jpg)$
+
+- url: .*
+  script: main.application
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest

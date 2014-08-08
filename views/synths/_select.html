@@ -1,0 +1,17 @@
+{% if view %}
+{% extends "view.html" %}
+{% else %}
+{% extends "edit.html" %}
+{% endif %}
+
+{% block content %}
+<div class="section">
+  <div class="meta">
+    <ul>
+    {% for synth in synths %}
+      <li><a href="/patches/{{ synth.key.id() }}/create">{{ synth.make }} {{ synth.model }}</a></li>
+    {% endfor %}
+  </ul>
+  </div>
+</div>
+{% endblock %}

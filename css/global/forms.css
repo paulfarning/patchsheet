@@ -1,0 +1,32 @@
+.section {
+  clear: both;
+  margin: 0 0 24px 0;
+  overflow: hidden; }
+
+.ctrl {
+  float: left;
+  margin: 0 20px 0 0; }
+
+.-vertical {
+  min-width: 50px; }
+  .-vertical input {
+    border: none;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 3em; }
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 0 0 6px 0;
+  text-align: center; }
+  .meta label {
+    text-align: left; }
+
+.slider-vertical {
+  height: 200px;
+  margin: 16px auto; }
+
+.ui-slider-handle {
+  outline: none; }
