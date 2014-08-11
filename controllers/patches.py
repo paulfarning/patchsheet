@@ -55,8 +55,8 @@ class Create(webapp2.RequestHandler):
 
     patch.name = self.request.get('patch-name')
 
-    for param in model.params_int:
-      setattr(patch, param, int(self.request.get(param.replace('_', '-'))))
+    for param in model.params_num:
+      setattr(patch, param, float(self.request.get(param.replace('_', '-'))))
 
     for param in model.params_bool:
       setattr(patch, param, True if self.request.get(param.replace('_', '-')) else False)

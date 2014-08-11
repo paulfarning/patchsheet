@@ -37,7 +37,7 @@ class Patch(ndb.Expando):
 # [START juno60]
 class Juno60:
   """Models an individual Juno 60 patch."""
-  params_int = [
+  params_num = [
     'lfo_rate',
     'lfo_delay_time',
     'dco_lfo',
@@ -74,7 +74,7 @@ class Juno60:
 # [START minibrute]
 class MiniBrute(ndb.Model):
   """Models an individual MiniBrute patch."""
-  params_int = [
+  params_num = [
     'osc_ultrasaw_amount',
     'osc_ultrasaw_rate',
     'osc_ultrasaw_amount',

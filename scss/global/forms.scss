@@ -6,6 +6,11 @@
   .ctrl {
     float: left;
     margin: 0 20px 0 0;
+    user-select: none;
+
+    input {
+      user-select: none;
+    }
   }
     .-vertical {
       min-width: 50px;

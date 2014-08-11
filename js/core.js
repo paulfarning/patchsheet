@@ -8,9 +8,9 @@
 ps = {};
 ps.sliderDefaults = {
   min: 0,
-  max: 100,
+  max: 10,
   value: 0,
-  step: 1,
+  step: .1,
   disabled: false
 };
 ps.knobDefaults = {
@@ -58,6 +58,7 @@ ps.SetUp.prototype.create_ = function() {
 ps.SetUp.prototype.view_ = function() {
 
   console.log('view');
+  this.initSliders_();
   this.initKnobs_();
 
 }
@@ -102,7 +103,9 @@ ps.SetUp.prototype.initKnobs_ = function() {
     var min = knob.data('min') ? knob.data('min') : ps.knobDefaults.min;
     var max = knob.data('max') ? knob.data('max') : ps.knobDefaults.max;
     var step = knob.data('step') ? knob.data('step') : ps.knobDefaults.step;
-    var readOnly = knob.data('readOnly') ? knob.data('readOnly') : ps.knobDefaults.readOnly;
+    var readOnly = knob.data('readonly') ? knob.data('readonly') : ps.knobDefaults.readOnly;
+
+    console.log(readOnly, knob.data('readonly'));
 
     knob.knob({
       min: min,

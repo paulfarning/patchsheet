@@ -9,7 +9,7 @@
 {% macro knob(name, label, max, min, step, value) -%}
   <div class="ctrl -knob">
     <label for="{{ name }}">{{ label }}</label>
-    <input class="knob" id="{{ name }}" name="{{ name }}" type="text" value="{% if patch %}{{ patch[name.replace('-','_')] }}{% else %}0{% endif %}" readonly {% if disabled == 'true' %} data-readOnly="true"{% endif %} {% if max %} data-max="{{ max }}"{% endif %} {% if min %} data-min="{{ min }}"{% endif %} {% if step %} data-step="{{ step }}"{% endif %}>
+    <input class="knob" id="{{ name }}" name="{{ name }}" type="text" value="{% if patch %}{{ patch[name.replace('-','_')] }}{% else %}0{% endif %}" readonly {% if disabled == 'true' %} data-readonly="true"{% endif %} {% if max %} data-max="{{ max }}"{% endif %} {% if min %} data-min="{{ min }}"{% endif %} {% if step %} data-step="{{ step }}"{% endif %}>
   </div>
 {%- endmacro %}
 

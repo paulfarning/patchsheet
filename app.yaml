@@ -26,8 +26,16 @@ handlers:
   static_files: static/\1
   upload: static/.*\.(gif|png|jpg)$
 
+- url: /synths
+  script: main.application
+
 - url: .*
   script: main.application
+
+admin_console:
+  pages:
+  - name: Synth Categories
+    url: /synths
 
 libraries:
 - name: webapp2

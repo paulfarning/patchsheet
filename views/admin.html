@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Admin</h1>
+
+  <h2>Synths: {{ synths|length }}</h2>
+  <ol>
+    {% for synth in synths %}
+      <li><a href="/patches/{{ synth.key.id() }}/create">{{ synth.make }} {{ synth.model }}</a></li>
+    {% endfor %}
+  </ol>
+
+  <h2>Patches: {{ patches|length }}</h2>
+  <ol>
+    {% for patch in patches %}
+    <li><a href="/patches/{{ patch.key.parent().id() }}/{{ patch.key.id() }}">{{ patch.name }}</a> for {{ patch.key.parent().get().make }} {{ patch.key.parent().get().model }}</li>
+    {% endfor %}
+  </ol>
+{% endblock %}
+
+{% block script %}
+  <script>
+    var page = new ps.SetUp('home');
+  </script>
+{% endblock %}
