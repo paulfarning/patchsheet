@@ -13,6 +13,7 @@
 # Ignore the build directory
 /build
 /css
+/css/*
 
 # Ignore cache
 /.sass-cache
