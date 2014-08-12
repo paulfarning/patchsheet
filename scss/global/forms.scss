@@ -33,6 +33,10 @@ label {
   .meta & {
     text-align: left;
   }
+
+  & + label {
+    font-weight: normal;
+  }
 }
 
 
