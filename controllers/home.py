@@ -21,7 +21,7 @@ JINJA_ENVIRONMENT.globals['OrderedDict'] = collections.OrderedDict
 # [START main]
 class Main(webapp2.RequestHandler):
   def get(self):
-    patches = Patch.query().order(-Patch.created).fetch(10)
+    patches = Patch.query(projection=[Patch.name]).order(-Patch.created).fetch(10)
     synths = Synth.query().fetch()
     template_values = {
       'patches': patches,

@@ -12,80 +12,112 @@
   <h2>Oscillator</h2>
   <div class="section">
     <h3>Sub Osc</h3>
-    {{ controls.switch('osc-wave', 'Wave', OrderedDict([('square', 'Square'), ('sine', 'Sine')]), 'square') }}
-    {{ controls.switch('osc-octave', 'Octave', OrderedDict([('1', '-1'), ('2', '-2')]), '1') }}
+    <div class="group">
+      {{ controls.switch('osc-wave', 'Wave', OrderedDict([('square', 'Square'), ('sine', 'Sine')]), 'square') }}
+      {{ controls.switch('osc-octave', 'Octave', OrderedDict([('1', '-1'), ('2', '-2')]), '1') }}
+    </div>
   </div>
   <div class="section">
     <h3>Saw</h3>
-    {{ controls.knob('osc-ultrasaw-amount', 'Ultrasaw Amount') }}
-    {{ controls.knob('osc-ultrasaw-rate', 'Ultrasaw Rate') }}
+    <div class="group">
+      {{ controls.knob('osc-ultrasaw-amount', 'Ultrasaw Amount') }}
+      {{ controls.knob('osc-ultrasaw-rate', 'Ultrasaw Rate') }}
+    </div>
   </div>
   <div class="section">
     <h3>Square</h3>
-    {{ controls.knob('osc-pulse-width', 'Pulse Width', max=90, min=50, value=50) }}
-    {{ controls.knob('osc-pulse-amt', 'ENV Amt', value=0, max=50, min=-50) }}
+    <div class="group">
+      {{ controls.knob('osc-pulse-width', 'Pulse Width', max=90, min=50, value=50) }}
+      {{ controls.knob('osc-pulse-amt', 'ENV Amt', value=0, max=50, min=-50) }}
+    </div>
   </div>
   <div class="section">
     <h3>Triangle</h3>
-    {{ controls.knob('osc-metalizer', 'Metalizer') }}
-    {{ controls.knob('osc-metalizer-amt', 'Env Amt', value=0, max=50, min=-50) }}
+    <div class="group">
+      {{ controls.knob('osc-metalizer', 'Metalizer') }}
+      {{ controls.knob('osc-metalizer-amt', 'Env Amt', value=0, max=50, min=-50) }}
+    </div>
   </div>
 </div>
 <div class="section">
   <h2>Oscillator Mixer</h2>
-  {{ controls.vertical_slider('mix-sub-osc', 'Sub Osc') }}
-  {{ controls.vertical_slider('mix-saw', 'Saw') }}
-  {{ controls.vertical_slider('mix-square', 'Square') }}
-  {{ controls.vertical_slider('mix-triangle', 'Triangle') }}
-  {{ controls.vertical_slider('mix-noise', 'Noise') }}
-  {{ controls.vertical_slider('mix-audio', 'Audio In') }}
+  <div class="group">
+    {{ controls.vertical_slider('mix-sub-osc', 'Sub Osc') }}
+    {{ controls.vertical_slider('mix-saw', 'Saw') }}
+    {{ controls.vertical_slider('mix-square', 'Square') }}
+    {{ controls.vertical_slider('mix-triangle', 'Triangle') }}
+    {{ controls.vertical_slider('mix-noise', 'Noise') }}
+    {{ controls.vertical_slider('mix-audio', 'Audio In') }}
+  </div>
 </div>
 <div class="section">
   <h2>Filter</h2>
-  {{ controls.knob('filter-cutoff', 'Cutoff') }}
-  {{ controls.knob('filter-resonance', 'Resonance') }}
-  {{ controls.switch('filter-mode', 'Mode', OrderedDict([('lp', 'LP'), ('bp', 'BP'), ('hp', 'HP'), ('ntch', 'Ntch')]), 'lp') }}
-  {{ controls.knob('filter-amt', 'Env Amt', value=0, max=50, min=-50) }}
-  {{ controls.knob('filter-kbd', 'KBD Tracking', max=200, min=0) }}
-  {{ controls.switch('filter-speed', 'ENV Speed', OrderedDict([('fast', 'Fast'), ('slow', 'Slow')]), 'fast') }}
+  <div class="group -float-left">
+    {{ controls.knob('filter-cutoff', 'Cutoff') }}
+    {{ controls.knob('filter-resonance', 'Resonance') }}
+    {{ controls.switch('filter-mode', 'Mode', OrderedDict([('lp', 'LP'), ('bp', 'BP'), ('hp', 'HP'), ('ntch', 'Ntch')]), 'lp') }}
+  </div>
+  <div class="group -float-left">
+    {{ controls.knob('filter-amt', 'Env Amt', value=0, max=50, min=-50) }}
+    {{ controls.knob('filter-kbd', 'KBD Tracking', max=200, min=0) }}
+    {{ controls.switch('filter-speed', 'ENV Speed', OrderedDict([('fast', 'Fast'), ('slow', 'Slow')]), 'fast') }}
+  </div>
 </div>
 <div class="section">
   <h2>Filter Envelope</h2>
-  {{ controls.vertical_slider('filter-env-a', 'Attack') }}
-  {{ controls.vertical_slider('filter-env-d', 'Decay') }}
-  {{ controls.vertical_slider('filter-env-s', 'Sustain') }}
-  {{ controls.vertical_slider('filter-env-r', 'Release') }}
+  <div class="group">
+    {{ controls.vertical_slider('filter-env-a', 'Attack') }}
+    {{ controls.vertical_slider('filter-env-d', 'Decay') }}
+    {{ controls.vertical_slider('filter-env-s', 'Sustain') }}
+    {{ controls.vertical_slider('filter-env-r', 'Release') }}
+  </div>
 </div>
 <div class="section">
   <h2>Amplification Envelope</h2>
-  {{ controls.vertical_slider('amp-env-a', 'Attack') }}
-  {{ controls.vertical_slider('amp-env-d', 'Decay') }}
-  {{ controls.vertical_slider('amp-env-s', 'Sustain') }}
-  {{ controls.vertical_slider('amp-env-r', 'Release') }}
+  <div class="group">
+    {{ controls.vertical_slider('amp-env-a', 'Attack') }}
+    {{ controls.vertical_slider('amp-env-d', 'Decay') }}
+    {{ controls.vertical_slider('amp-env-s', 'Sustain') }}
+    {{ controls.vertical_slider('amp-env-r', 'Release') }}
+  </div>
 </div>
 <div class="section">
   <h2>Controls</h2>
-  {{ controls.switch('controls-mod', 'MOD Wheel', OrderedDict([('cutoff', 'Cutoff'), ('vibrato', 'Vibrato'), ('lfo', 'LFO Amount')]), 'cutoff') }}
-  {{ controls.switch('controls-aftertouch', 'Aftertouch', OrderedDict([('cutoff', 'Cutoff'), ('vibrato', 'Vibrato'), ('off', 'Off')]), 'off') }}
-  {{ controls.knob('controls-bend', 'Bend Range', min=1, max=12) }}
-  {{ controls.knob('controls-glide', 'Glide') }}
+  <div class="group -float-left">
+    {{ controls.switch('controls-mod', 'MOD Wheel', OrderedDict([('cutoff', 'Cutoff'), ('vibrato', 'Vibrato'), ('lfo', 'LFO Amount')]), 'cutoff') }}
+    {{ controls.switch('controls-aftertouch', 'Aftertouch', OrderedDict([('cutoff', 'Cutoff'), ('vibrato', 'Vibrato'), ('off', 'Off')]), 'off') }}
+  </div>
+  <div class="group -float-left">
+    {{ controls.knob('controls-bend', 'Bend Range', min=1, max=12) }}
+    {{ controls.knob('controls-glide', 'Glide') }}
+  </div>
 </div>
 <div class="section">
   <h2>Vibrato</h2>
-  {{ controls.switch('vibrato-shape', 'Shape', OrderedDict([('square', 'Square'), ('sine', 'Sine'), ('neg-square', 'Negative Square')]), 'sine') }}
-  {{ controls.knob('vibrato-rate', 'Rate', value=50) }}
+  <div class="group">
+    {{ controls.switch('vibrato-shape', 'Shape', OrderedDict([('square', 'Square'), ('sine', 'Sine'), ('neg-square', 'Negative Square')]), 'sine') }}
+    {{ controls.knob('vibrato-rate', 'Rate', value=50) }}
+  </div>
 </div>
 <div class="section">
   <h2>LFO</h2>
-  {{ controls.knob('lfo-pwm', 'PWM & Metalizer', value=0, max=50, min=-50) }}
-  {{ controls.knob('lfo-pitch', 'Pitch', value=0, max=50, min=-50) }}
-  {{ controls.knob('lfo-filter', 'Filter', value=0, max=50, min=-50) }}
-  {{ controls.knob('lfo-amp', 'Amp', value=0, max=50, min=-50) }}
-  {{ controls.switch('lfo-wave', 'Wave', OrderedDict([('sine', 'Sine'), ('triangle', 'Triangle'), ('saw', 'Saw'), ('square', 'Square'), ('random-step', 'Random Stepped'), ('random-glide', 'Random Glide'), ]), 'sine') }}
-  {{ controls.knob('lfo-rate', 'Rate') }}
+  <div class="group -float-left">
+    {{ controls.knob('lfo-pwm', 'PWM & Metalizer', value=0, max=50, min=-50) }}
+    {{ controls.knob('lfo-pitch', 'Pitch', value=0, max=50, min=-50) }}
+  </div>
+  <div class="group -float-left">
+    {{ controls.knob('lfo-filter', 'Filter', value=0, max=50, min=-50) }}
+    {{ controls.knob('lfo-amp', 'Amp', value=0, max=50, min=-50) }}
+  </div>
+  <div class="group -float-left">
+    {{ controls.knob('lfo-rate', 'Rate') }}
+    {{ controls.switch('lfo-wave', 'Wave', OrderedDict([('sine', 'Sine'), ('triangle', 'Triangle'), ('saw', 'Saw'), ('square', 'Square'), ('random-step', 'Random Stepped'), ('random-glide', 'Random Glide'), ]), 'sine') }}
+  </div>
 </div>
 <div class="section">
   <h2>Volume</h2>
-  {{ controls.knob('brute-factor', 'Brute Factor') }}
+  <div class="group">
+    {{ controls.knob('brute-factor', 'Brute Factor') }}
+  </div>
 </div>
 {% endblock %}

@@ -18,20 +18,21 @@ SynthModelMap = {
 # [START synth]
 class Synth(ndb.Model):
   """Models an individual synth."""
-  author = ndb.UserProperty()
+  author = ndb.StringProperty()
   created = ndb.DateTimeProperty(auto_now_add=True)
   edited = ndb.DateProperty(auto_now=True)
-  make = ndb.StringProperty(indexed=False)
-  model = ndb.StringProperty(indexed=False)
+  make = ndb.StringProperty()
+  model = ndb.StringProperty()
 # [END synth]
 
 # [START patch]
 class Patch(ndb.Expando):
   """Models an individual synth patch."""
-  author = ndb.UserProperty()
+  author = ndb.StringProperty()
   created = ndb.DateTimeProperty(auto_now_add=True)
   edited = ndb.DateProperty(auto_now=True)
-  name = ndb.StringProperty(indexed=False)
+  name = ndb.StringProperty()
+  owner = ndb.StringProperty()
 # [END patch]
 
 # [START juno60]

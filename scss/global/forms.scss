@@ -1,11 +1,16 @@
 .section {
   clear: both;
-  margin: 0 0 24px 0;
+  overflow: hidden;
+}
+.group {
+  clear: both;
+  padding: 0 0 24px 0;
   overflow: hidden;
 }
   .ctrl {
+    box-sizing: border-box;
     float: left;
-    margin: 0 20px 0 0;
+    padding: 0 20px 0 0;
     user-select: none;
 
     input {
@@ -13,14 +18,19 @@
     }
   }
     .-vertical {
+      max-width: 140px;
       min-width: 50px;
+      width: 25%;
 
       input {
         border: none;
         display: block;
         margin: 0 auto;
         text-align: center;
-        width: 3em;
+        width: 34px;
+      }
+      label {
+        // white-space: nowrap;
       }
     }
 
@@ -50,4 +60,9 @@ label {
 
 .-knob {
   height: 100px;
+}
+
+.-float-left {
+  float: left;
+  clear: none;
 }

@@ -49,9 +49,10 @@ class Create(webapp2.RequestHandler):
     synth = self.request.get('patch-synth')
     patch = Patch(parent=synth_key(synth))
     model = globals()[SynthModelMap[synth]]
+    user = users.get_current_user()
 
-    if users.get_current_user():
-      patch.author = users.get_current_user()
+    if user:
+      patch.author = user.user_id()
 
     patch.name = self.request.get('patch-name')
 

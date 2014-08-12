@@ -10,50 +10,69 @@
 <input type="hidden" name="patch-synth" value="juno-60">
 <div class="section">
   <h2>LFO</h2>
-  {{ controls.vertical_slider('lfo-rate', 'Rate') }}
-  {{ controls.vertical_slider('lfo-delay-time', 'Delay Time') }}
-  {{ controls.switch('lfo-trig-mode', 'Trig Mode', OrderedDict([('auto', 'Auto'), ('manual', 'Manual')]), 'auto') }}
+  <div class="group">
+    {{ controls.vertical_slider('lfo-rate', 'Rate') }}
+    {{ controls.vertical_slider('lfo-delay-time', 'Delay Time') }}
+    {{ controls.switch('lfo-trig-mode', 'Trig Mode', OrderedDict([('auto', 'Auto'), ('manual', 'Manual')]), 'auto') }}
+  </div>
 </div>
 <div class="section">
   <h2>DCO</h2>
-  {{ controls.vertical_slider('dco-lfo', 'LFO') }}
-  {{ controls.vertical_slider('dco-pwm', 'PWM') }}
-  {{ controls.switch('dco-pwm-mode', 'PWM Mode', OrderedDict([('lfo', 'LFO'), ('manual', 'Manual'), ('env', 'Env')]), 'manual') }}
-  {{ controls.button('dco-square', 'Square') }}
-  {{ controls.button('dco-saw', 'Saw') }}
-  {{ controls.button('dco-sub', 'Sub') }}
-  {{ controls.vertical_slider('dco-sub-osc', 'Sub Osc') }}
-  {{ controls.vertical_slider('dco-noise', 'Noise') }}
+  <div class="group">
+    {{ controls.button('dco-square', 'Square') }}
+    {{ controls.button('dco-saw', 'Saw') }}
+    {{ controls.button('dco-sub', 'Sub') }}
+  </div>
+  <div class="group">
+    {{ controls.switch('dco-pwm-mode', 'PWM Mode', OrderedDict([('lfo', 'LFO'), ('manual', 'Manual'), ('env', 'Env')]), 'manual') }}
+  </div>
+  <div class="group">
+    {{ controls.vertical_slider('dco-lfo', 'LFO') }}
+    {{ controls.vertical_slider('dco-pwm', 'PWM') }}
+    {{ controls.vertical_slider('dco-sub-osc', 'Sub Osc') }}
+    {{ controls.vertical_slider('dco-noise', 'Noise') }}
+  </div>
 </div>
 <div class="section">
   <h2>HPF</h2>
-  {{ controls.vertical_slider('hpf-freq', 'Freq') }}
+  <div class="group">
+    {{ controls.vertical_slider('hpf-freq', 'Freq') }}
+  </div>
 </div>
 <div class="section">
   <h2>VCF</h2>
-  {{ controls.vertical_slider('vcf-freq', 'Freq') }}
-  {{ controls.vertical_slider('vcf-res', 'Res') }}
-  {{ controls.switch('vcf-polarity', 'Polarity', OrderedDict([('normal', 'Normal'), ('inverted', 'Inverted')]), 'normal') }}
-  {{ controls.vertical_slider('vcf-env', 'Env') }}
-  {{ controls.vertical_slider('vcf-lfo', 'LFO') }}
-  {{ controls.vertical_slider('vcf-kybd', 'Kybd') }}
+  <div class="group">
+    {{ controls.vertical_slider('vcf-freq', 'Freq') }}
+    {{ controls.vertical_slider('vcf-res', 'Res') }}
+  </div>
+  <div class="group">
+    {{ controls.vertical_slider('vcf-env', 'Env') }}
+    {{ controls.vertical_slider('vcf-lfo', 'LFO') }}
+    {{ controls.vertical_slider('vcf-kybd', 'Kybd') }}
+    {{ controls.switch('vcf-polarity', 'Polarity', OrderedDict([('normal', 'Normal'), ('inverted', 'Inverted')]), 'normal') }}
+  </div>
 </div>
 <div class="section">
   <h2>VCA</h2>
-  {{ controls.vertical_slider('vca-level', 'Level', value=5) }}
-  {{ controls.switch('vca-control-signal', 'Control Signal', OrderedDict([('env', 'Env'), ('gate', 'Gate')]), 'env') }}
+  <div class="group">
+    {{ controls.vertical_slider('vca-level', 'Level', value=5) }}
+    {{ controls.switch('vca-control-signal', 'Control Signal', OrderedDict([('env', 'Env'), ('gate', 'Gate')]), 'env') }}
   </div>
 </div>
 <div class="section">
   <h2>Env</h2>
-  {{ controls.vertical_slider('env-a', 'A') }}
-  {{ controls.vertical_slider('env-d', 'D') }}
-  {{ controls.vertical_slider('env-s', 'S') }}
-  {{ controls.vertical_slider('env-r', 'R') }}
+  <div class="group">
+    {{ controls.vertical_slider('env-a', 'A') }}
+    {{ controls.vertical_slider('env-d', 'D') }}
+    {{ controls.vertical_slider('env-s', 'S') }}
+    {{ controls.vertical_slider('env-r', 'R') }}
+  </div>
 </div>
 <div class="section">
   <h2>Chorus</h2>
-  {{ controls.button('chorus-i', 'I') }}
-  {{ controls.button('chorus-ii', 'II') }}
+  <div class="group">
+    {{ controls.button('chorus-i', 'I') }}
+    {{ controls.button('chorus-ii', 'II') }}
+  </div>
 </div>
 {% endblock %}
