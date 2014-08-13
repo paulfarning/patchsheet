@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Login</h1>
+  <ol>
+    {% for name, url in providers.items() %}
+      <li><a href="{{ url }}">{{ name }}</a></li>
+    {% endfor %}
+  </ol>
+{% endblock %}
+
+{% block script %}
+  <script>
+    var page = new ps.SetUp('login');
+  </script>
+{% endblock %}

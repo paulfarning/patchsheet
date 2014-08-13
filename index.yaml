@@ -1,6 +1,6 @@
 indexes:
 - kind: Patch
-  ancestor: yes
   properties:
-  - name: date
+  - name: created
     direction: desc
+  - name: name

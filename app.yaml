@@ -4,6 +4,14 @@ runtime: python27
 api_version: 1
 threadsafe: true
 
+skip_files:
+- ^README\..*
+- \.gitignore
+- ^\.git/.*
+- ^Gruntfile\.js
+- ^node_modules/(.*/)?
+- ^scss/(.*/)?
+
 handlers:
 - url: /favicon\.png
   static_files: favicon.png
@@ -16,21 +24,19 @@ handlers:
 - url: /css
   static_dir: css
 
-- url: /images
-  static_dir: images
+- url: /img
+  static_dir: img
 
 - url: /js
   static_dir: js
 
-- url: /(.*\.(gif|png|jpg))$
-  static_files: static/\1
-  upload: static/.*\.(gif|png|jpg)$
-
 - url: /synths
   script: main.application
+  login: admin
 
 - url: .*
   script: main.application
+  login: admin
 
 admin_console:
   pages:

@@ -26,13 +26,13 @@ class Main(webapp2.RequestHandler):
 
     if len(synths) == 0:
       synth = Synth(id='minibrute')
-      synth.author = users.get_current_user()
+      synth.author = users.get_current_user().user_id()
       synth.make = 'Arturia'
       synth.model = 'MiniBrute'
       key = synth.put()
 
       synth = Synth(id='juno-60')
-      synth.author = users.get_current_user()
+      synth.author = users.get_current_user().user_id()
       synth.make = 'Roland'
       synth.model = 'Juno 6/60'
       key = synth.put()
