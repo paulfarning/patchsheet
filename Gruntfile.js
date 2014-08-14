@@ -3,11 +3,6 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     sass: {
       dist: {
-        files: {
-          'css/site.css' : 'scss/site.scss'
-        }
-      },
-      site: {
         options: {
           style: 'compressed'
         },
@@ -19,12 +14,7 @@ module.exports = function(grunt) {
     autoprefixer: {
       dist: {
         files: {
-          'css/site.css': 'css/site.css'
-        }
-      },
-      site: {
-        files: {
-          'css/site.min.css' : 'css/site.min.css'
+          'css/site.min.css': 'css/site.min.css'
         }
       }
     },
@@ -56,6 +46,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.registerTask('default', ['watch']);
-  grunt.registerTask('build', ['sass:site', 'autoprefixer', 'uglify:site', 'concat:site'])
+  grunt.registerTask('build', ['sass', 'autoprefixer', 'uglify:site', 'concat:site'])
 
 }

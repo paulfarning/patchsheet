@@ -50,3 +50,5 @@ skip_files:
 - ^node_modules/(.*/)?.*
 - ^scss/(.*/)?.*
 - ^package.json
+- ^deploy.py
+- ^views/base.tmp.html
