@@ -11,7 +11,7 @@ ps.sliderDefaults = {
   min: 0,
   max: 10,
   value: 0,
-  step: .1,
+  step: 0.1,
   disabled: false
 };
 ps.knobDefaults = {
@@ -24,7 +24,7 @@ ps.knobDefaults = {
   angleArc: 270,
   fgColor: '#666',
   width: 90,
-  thickness: .2,
+  thickness: 0.2,
   cursor: 6
 };
 
@@ -53,7 +53,7 @@ ps.SetUp.prototype.create_ = function() {
   this.initKnobs_();
 
 
-}
+};
 
 
 ps.SetUp.prototype.view_ = function() {
@@ -62,7 +62,7 @@ ps.SetUp.prototype.view_ = function() {
   this.initSliders_();
   this.initKnobs_();
 
-}
+};
 
 
 ps.SetUp.prototype.initSliders_ = function() {
