@@ -77,7 +77,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'sass',
     'autoprefixer',
-    'jshint:site',
+    'jshint',
     'uglify:site',
     'concat:site'
   ]);
