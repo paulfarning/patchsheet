@@ -15,11 +15,13 @@
       </ul>
     </nav>
     {% block content %}{% endblock %}
+    <!-- build:js js/app.min.js -->
     <script src="/js/lib/jquery-2.1.1.min.js"></script>
     <script src="/js/lib/jquery-ui.min.js"></script>
     <script src="/js/lib/jquery-ui.touch-punch.min.js"></script>
     <script src="/js/lib/jquery.knob.min.js"></script>
     <script src="/js/core.js"></script>
+    <!-- endbuild -->
     {% block script %}{% endblock %}
   </body>
 </html>

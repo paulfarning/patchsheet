@@ -1,21 +1,13 @@
 import os
 import urllib
 import logging
-import collections
 
 from google.appengine.api import users
 from google.appengine.ext import ndb
 
 from models.models import *
 
-import jinja2
-import webapp2
-
-JINJA_ENVIRONMENT = jinja2.Environment(
-  loader=jinja2.FileSystemLoader('views'),
-  extensions=['jinja2.ext.autoescape'],
-  autoescape=True)
-JINJA_ENVIRONMENT.globals['OrderedDict'] = collections.OrderedDict
+from config import JINJA_ENVIRONMENT
 
 
 providers = {

@@ -6,7 +6,7 @@ from controllers.admin import Main as MainAdmin
 
 import webapp2
 
-application = webapp2.WSGIApplication([
+app = webapp2.WSGIApplication([
   (r'/', MainHome),
   (r'/synths', MainAdmin),
   (r'/patches', MainPatches),

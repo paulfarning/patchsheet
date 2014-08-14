@@ -4,14 +4,6 @@ runtime: python27
 api_version: 1
 threadsafe: true
 
-skip_files:
-- ^README\..*
-- \.gitignore
-- ^\.git/.*
-- ^Gruntfile\.js
-- ^node_modules/(.*/)?
-- ^scss/(.*/)?
-
 handlers:
 - url: /favicon\.png
   static_files: favicon.png
@@ -31,16 +23,16 @@ handlers:
   static_dir: js
 
 - url: /synths
-  script: main.application
+  script: main.app
   login: admin
 
 - url: .*
-  script: main.application
+  script: main.app
   login: admin
 
 admin_console:
   pages:
-  - name: Synth Categories
+  - name: Status
     url: /synths
 
 libraries:
@@ -48,3 +40,13 @@ libraries:
   version: latest
 - name: jinja2
   version: latest
+
+skip_files:
+- ^README.md
+- \.gitignore
+- ^\.git/.*
+- ^Gruntfile\.js
+- ^Gruntfile.js
+- ^node_modules/(.*/)?.*
+- ^scss/(.*/)?.*
+- ^package.json
