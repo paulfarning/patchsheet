@@ -6,12 +6,25 @@ module.exports = function(grunt) {
         files: {
           'css/site.css' : 'scss/site.scss'
         }
+      },
+      site: {
+        options: {
+          style: 'compressed'
+        },
+        files: {
+          'css/site.min.css' : 'scss/site.scss'
+        }
       }
     },
     autoprefixer: {
       dist: {
         files: {
           'css/site.css': 'css/site.css'
+        }
+      },
+      site: {
+        files: {
+          'css/site.min.css' : 'css/site.min.css'
         }
       }
     },
@@ -21,16 +34,18 @@ module.exports = function(grunt) {
         tasks: ['sass', 'autoprefixer']
       }
     },
-    useminPrepare: {
-      html: 'views/base.html',
-      options: {
-        root: '/',
-        dest: 'dist'
+    uglify: {
+      site: {
+        files: {
+          'js/core.min.js': ['js/core.js']
+        }
       }
-
     },
-    usemin: {
-
+    concat: {
+      site: {
+        src: ['js/lib/jquery-2.1.1.min.js', 'js/lib/jquery-ui.min.js', 'js/lib/jquery-ui.touch-punch.min.js', 'js/lib/jquery.knob.min.js', 'js/core.min.js'],
+        dest: 'js/site.min.js'
+      }
     }
   });
 
@@ -38,18 +53,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-filerev');
-  grunt.loadNpmTasks('grunt-usemin');
 
   grunt.registerTask('default', ['watch']);
-  grunt.registerTask('build', [
-    'useminPrepare',
-    'concat:generated',
-    'cssmin:generated',
-    'uglify:generated',
-    'usemin'
-  ]);
+  grunt.registerTask('build', ['sass:site', 'autoprefixer', 'uglify:site', 'concat:site'])
 
 }

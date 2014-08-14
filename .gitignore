@@ -14,6 +14,8 @@
 /build
 /css
 /css/*.css
+/js/core.min.js
+/js/site.min.js
 
 # Ignore cache
 /.sass-cache
