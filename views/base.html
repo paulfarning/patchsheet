@@ -11,18 +11,14 @@
     <nav>
       <ul>
         <li><a href="/">Patch Sheet</a></li>
-        <li><a href="/patches/create">Create</a></li>
+        <li><a href="/patches/create">Create</a></li>{#
+        <li><a href="/login/tw">Twitter Login</a></li>
+        <li><a href="/login/fb">Facebook Login</a></li>
+        <li><a href="/login/g">Google Login</a></li> #}
       </ul>
     </nav>
     {% block content %}{% endblock %}
-    {# dev #}
-    <script src="/js/lib/jquery-2.1.1.min.js"></script>
-    <script src="/js/lib/jquery-ui.min.js"></script>
-    <script src="/js/lib/jquery-ui.touch-punch.min.js"></script>
-    <script src="/js/lib/jquery.knob.min.js"></script>
-    <script src="/js/core.js"></script>
-    {# enddev #}
+    <script src="/js/site.min.js"></script>
     {% block script %}{% endblock %}
   </body>
 </html>
-
