@@ -38,7 +38,8 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          style: 'compressed'
+          style: 'compressed',
+          sourcemap: false
         },
         files: {
           'css/site.min.css' : 'scss/site.scss'
@@ -62,6 +63,10 @@ module.exports = function(grunt) {
       scripts: {
         files: ['Gruntfile.js', 'js/core.js'],
         tasks: ['jshint']
+      },
+      concat: {
+        files: ['js/lib/*.js', 'js/core.js'],
+        tasks: ['uglify:site', 'concat:site']
       }
     }
   });
