@@ -1,0 +1,69 @@
+{% if view %}
+{% extends "view.html" %}
+{% else %}
+{% extends "edit.html" %}
+{% endif %}
+
+{% import 'controls.html' as controls with context %}
+
+{% block patch %}
+<input type="hidden" name="patch-synth" value="sh-101">
+<div class="section">
+  <h2>Modulator</h2>
+  <div class="group">
+    {{ controls.vertical_slider('mod-rate', 'LFO/CLK Rate') }}
+    {{ controls.switch('mod-form', 'Wave Form', OrderedDict([('triangle', 'Triangle'), ('square', 'Square'), ('random', 'Random'), ('noise', 'Noise')]), 'triangle') }}
+  </div>
+</div>
+<div class="section">
+  <h2>VCO</h2>
+  <div class="group">
+    {{ controls.vertical_slider('vco-mod', 'Mod') }}
+    {{ controls.switch('vco-range', 'Range', OrderedDict([('16', '16'), ('8', '8'), ('4', '4'), ('2', '2')]), '16') }}
+    {{ controls.vertical_slider('vco-pulse-width', 'Pulse Width') }}
+    {{ controls.switch('vco-pwm-mode', 'PWM Mode', OrderedDict([('lfo', 'LFO'), ('manual', 'Manual'), ('env', 'Env')]), 'manual') }}
+  </div>
+</div>
+<div class="section">
+  <h2>Source Mixer</h2>
+  <div class="group">
+    {{ controls.vertical_slider('source-pulse', 'Pulse') }}
+    {{ controls.vertical_slider('source-saw', 'Saw') }}
+    {{ controls.vertical_slider('source-sub', 'Sub Osc') }}
+    {{ controls.switch('source-sub-oct', 'Sub Wave', OrderedDict([('1oct', '1 Oct Down Square'), ('2octs', '2 Oct Down Square'), ('2octp', '2 Oct Down Pulse')]), '1oct') }}
+  </div>
+  <div class="group">
+    {{ controls.vertical_slider('source-noise', 'Noise') }}
+  </div>
+</div>
+<div class="section">
+  <h2>VCF</h2>
+  <div class="group">
+    {{ controls.vertical_slider('vcf-freq', 'Freq') }}
+    {{ controls.vertical_slider('vcf-res', 'Res') }}
+  </div>
+  <div class="group">
+    {{ controls.vertical_slider('vcf-env', 'Env') }}
+    {{ controls.vertical_slider('vcf-mod', 'Mod') }}
+    {{ controls.vertical_slider('vcf-kybd', 'Kybd') }}
+  </div>
+</div>
+<div class="section">
+  <h2>VCA</h2>
+  <div class="group">
+    {{ controls.switch('vca-control-signal', 'Control Signal', OrderedDict([('env', 'Env'), ('gate', 'Gate')]), 'env') }}
+  </div>
+</div>
+<div class="section">
+  <h2>Env</h2>
+  <div class="group">
+    {{ controls.switch('env-gatetrig', 'Gate/Trigger Selector', OrderedDict([('gatetrig', 'Gate + Trig'), ('gate', 'Gate'), ('lfo', 'LFO')]), 'gate') }}
+  </div>
+  <div class="group">
+    {{ controls.vertical_slider('env-a', 'A') }}
+    {{ controls.vertical_slider('env-d', 'D') }}
+    {{ controls.vertical_slider('env-s', 'S') }}
+    {{ controls.vertical_slider('env-r', 'R') }}
+  </div>
+</div>
+{% endblock %}

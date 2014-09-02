@@ -9,6 +9,7 @@ import webapp2
 
 SynthModelMap = {
   'juno-60': 'Juno60',
+  'sh-101': 'SH101',
   'minibrute': 'MiniBrute'
 }
 
@@ -71,6 +72,38 @@ class Juno60:
     'vca_control_signal'
   ]
 # [END juno60]
+
+# [START sh101]
+class SH101:
+  """Models an individual SH-101 patch."""
+  params_num = [
+    'mod_rate',
+    'vco_mod',
+    'vco_pulse_width',
+    'source_pulse',
+    'source_saw',
+    'source_sub',
+    'source_noise',
+    'vcf_freq',
+    'vcf_res',
+    'vcf_env',
+    'vcf_mod',
+    'vcf_kybd',
+    'env_a',
+    'env_d',
+    'env_s',
+    'env_r'
+  ]
+  params_bool = [
+  ]
+  params_string = [
+    'mod_form',
+    'vco_range',
+    'vco_pwn_mode',
+    'source_sub_oct',
+    'env_gatetrig'
+  ]
+# [END sh101]
 
 # [START minibrute]
 class MiniBrute(ndb.Model):

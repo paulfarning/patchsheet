@@ -29,6 +29,12 @@ class Main(webapp2.RequestHandler):
       synth.model = 'Juno 6/60'
       key = synth.put()
 
+      synth = Synth(id='sh-101')
+      synth.author = users.get_current_user().user_id()
+      synth.make = 'Roland'
+      synth.model = 'SH-101'
+      key = synth.put()
+
     template_values = {
       'patches': patches,
       'synths': synths
