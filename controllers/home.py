@@ -14,7 +14,7 @@ from config import JINJA_ENVIRONMENT
 class Main(webapp2.RequestHandler):
   def get(self):
     patches = Patch.query(projection=[Patch.name]).order(-Patch.created).fetch(10)
-    synths = Synth.query().fetch()
+    synths = Synth.query().order(Synth.make).order(Synth.model).fetch()
     template_values = {
       'patches': patches,
       'synths': synths

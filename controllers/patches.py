@@ -26,7 +26,7 @@ class Main(webapp2.RequestHandler):
 # [START create]
 class Create(webapp2.RequestHandler):
   def get(self, synth_id='_select'):
-    synths = Synth.query().fetch()
+    synths = Synth.query().order(Synth.make).order(Synth.model).fetch()
     template_values = {
       'disabled': 'false',
       'synths': synths,
