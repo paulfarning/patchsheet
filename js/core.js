@@ -84,7 +84,7 @@ ps.SetUp.prototype.initSliders_ = function() {
       step: step,
       disabled: disabled,
       slide: function(event, ui) {
-        field.val(ui.value);
+        field.val(ui.value.toFixed(1));
       }
     });
 
